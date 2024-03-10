@@ -67,7 +67,7 @@ Enter the details and save them somewhere (useful later)
 
 NOTE: If for some reason you get an error stating cerfificate not valid for the given IP , try
 
-" openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt -subj "/C=<country code >/ST=<state>/L <location>/O=< >U/OU=< >/CN=< >/emailAddress=< >" -addtext "subjectAltName = IP:<your IP>" "
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt -subj "/C=<country code >/ST=<state>/L <location>/O=< >U/OU=< >/CN=< >/emailAddress=< >" -addtext "subjectAltName = IP:<your IP>"
 
 you can find our IP by :
 ifconfig(mac /linux) or ipconfig(windows)
