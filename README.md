@@ -34,7 +34,7 @@ The Voting Management System is a technically sophisticated platform designed to
 - Run the server script and ensure it is up and running.
 - Launch the admin and voter clients, and interact with the system using the provided graphical interfaces.
 
-##MySQL Database setup
+## MySQL Database setup
 terminal->mysql -u root -p (macos) or open mysql command line client(windows)
 
 - create database networking;(if database is not created yet);
@@ -53,7 +53,7 @@ candidate_id varchar(255) PRIMARY KEY,
 candidate_name varchar(255) NOT NULL,
 votes_recieved int DEFAULT='0');
 
-##To generate self signed SSL certificate
+## To generate self signed SSL certificate
 https://www.openssl.org/source/   
 download the file and verify installation using openssl --version
 IN CMD/TERMINAL :
