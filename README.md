@@ -34,3 +34,38 @@ The Voting Management System is a technically sophisticated platform designed to
 - Run the server script and ensure it is up and running.
 - Launch the admin and voter clients, and interact with the system using the provided graphical interfaces.
 
+##MySQL Database setup
+terminal->mysql -u root -p (macos) or open mysql command line client(windows)
+
+- create database networking;(if database is not created yet);
+
+- use networking;
+  
+- create table voters(
+first_name varchar(255) NOT NULL,
+last_name varchar(255) NOT NULL,
+date_of_birth varchar(255) NOT NULL,
+pesu_srn varchar(25) PRIMARY KEY,
+has_voted tinyint(1) DEFAULT='0');
+
+- create table candidates(
+candidate_id varchar(255) PRIMARY KEY,
+candidate_name varchar(255) NOT NULL,
+votes_recieved int DEFAULT='0');
+
+##To generate self signed SSL certificate
+https://www.openssl.org/source/   
+download the file and verify installation using openssl --version
+IN CMD/TERMINAL :
+- openssl genrsa -out server.key 2048
+- openssl req -new -key server.key -out server.csr
+- openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+Enter the details and save them somewhere (useful later)
+
+NOTE: If for some reason you get an error stating cerfificate not valid for the given IP , try
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt -subj "/C=<country code 
+ >/ST=<state>/L=<location>/O=< >U/OU=< >/CN=< >/emailAddress=< >" -addtext "subjectAltName = IP:<your IP>"
+
+you can find our IP by :
+ifconfig(mac /linux) or ipconfig(windows)
+
